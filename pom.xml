@@ -31,7 +31,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.2.0</version>
                 <configuration>
                     <warName>cas</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -47,6 +47,12 @@
                             <artifactId>cas-server-webapp${app.server}</artifactId>
                         </overlay>
                     </overlays>
+                    <packagingExcludes>
+                        WEB-INF/lib/jackson-annotations-2.8.0.jar,
+                        WEB-INF/lib/spring-data-commons-1.13.1.RELEASE.jar,
+                        WEB-INF/lib/spring-data-mongodb-1.10.1.RELEASE.jar,
+                        WEB-INF/lib/spring-websocket-4.3.8.RELEASE.jar
+                    </packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -66,11 +72,90 @@
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-core-configuration-cloud-jdbc</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jpa-service-registry</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-oauth-webflow</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-pac4j-webflow</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-redis-ticket-registry</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-rest-services</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-saml</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-saml-idp</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-saml-mdui</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-saml-sp-integrations</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp-session-redis</artifactId>
+            <version>${cas.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-audit-jdbc</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.1.4</version>
+            <scope>runtime</scope>
+        </dependency>
         <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-bootadmin-client</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
         -->
         <!--
@@ -78,84 +163,120 @@
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-eureka-client</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
         -->
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-gauth</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-gauth-jpa</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-jpa-service-registry</artifactId>
-            <version>${cas.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oauth-webflow</artifactId>
-            <version>${cas.version}</version>
-        </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oidc</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-openid-webflow</artifactId>
             <version>${cas.version}</version>
+            <scope>runtime</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-pac4j-webflow</artifactId>
-            <version>${cas.version}</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-redis-ticket-registry</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${springboot.version}</version>
+            <scope>provided</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-rest-services</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${springboot.version}</version>
+            <scope>provided</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-saml</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${springtest.version}</version>
+            <scope>provided</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-saml-idp</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springtest.version}</version>
+            <scope>provided</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-saml-mdui</artifactId>
-            <version>${cas.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-saml-sp-integrations</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${springtest.version}</version>
+            <scope>test</scope>
         </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-test -->
+        <!--
         <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-webapp-session-redis</artifactId>
-            <version>${cas.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <version>${springboot.version}</version>
+            <scope>test</scope>
         </dependency>
-
+        -->
     </dependencies>
 
     <properties>
         <cas.version>5.1.5</cas.version>
-        <springboot.version>1.5.3.RELEASE</springboot.version>
+        <junit.version>4.12</junit.version>
+        <springboot.version>1.5.7.RELEASE</springboot.version>
+        <springtest.version>4.3.12.RELEASE</springtest.version>
         <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
         <app.server>-tomcat</app.server> 
         <maven.compiler.source>1.8</maven.compiler.source>

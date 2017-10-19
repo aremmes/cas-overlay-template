@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://cas-test.coredial.com/cas/idp">
+    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+        <Extensions>
+            <shibmd:Scope regexp="false">coredial.com</shibmd:Scope>
+        </Extensions>
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDHTCCAgWgAwIBAgIUChJDhVKl79w0sl1ldcO0ivnQeBkwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPY2FzLmV4YW1wbGUub3JnMB4XDTE3MTAxNzIwNTE0OVoX
+DTM3MTAxNzIwNTE0OVowGjEYMBYGA1UEAwwPY2FzLmV4YW1wbGUub3JnMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJkvFp86YR8jGNK5l9KXN869GtSG
+KtLZ+EJQgIXMxySCM49ILkxEUWa4lgs43DfMCPwzJXScOHm3e8mVTk3le/hAAjEs
+5263Q8IV99aZIUaLuSOnALKBPKfAqQX4OTdjj0MQKrweF9koKWtMfkcV/vK3Kdud
+YLV6BsBfQ/JuIH3Lku6/HmZZ4rfAd4emsEi/XMkUKviI1SZTwwK1ZSitGw6jpZTy
+2RsdWv4soB2NlOGwJ8jm6eLdrppkavsTic0Y6WQoQr/p7XEmLQi/TaXR8TvJe/n3
+8lctdjRlWztwtUD59hHbLk1n/tO2+27a6OsV0tB8UkRk8KUcp+YqtwJ6CQIDAQAB
+o1swWTAdBgNVHQ4EFgQUt+WqDiUDnubSkrH5zqLWaTxgz1wwOAYDVR0RBDEwL4IP
+Y2FzLmV4YW1wbGUub3JnhhxjYXMuZXhhbXBsZS5vcmcvaWRwL21ldGFkYXRhMA0G
+CSqGSIb3DQEBCwUAA4IBAQA8vsD5M/zaIFxkx0hKj6/xnSNHq66h4iTm6V1DMXCp
+hlhb8UnUquFWLzgREan07ExzV3NqV2zex1rJUfZZUHFLsKwlld0bTFdYfYDUrixv
+8KoL69OsQtjuM2ihDiXzC0WxEDO7IJ0o/hF6wIvra1XSO9iZ0GQVe5JhAKgta4KV
+J2JlPJ/okpIZw3/D1JjQGvxMVMbL2qk24e4eaSGGh6/cvhxMQwYmzwa4ELj/F/Sb
+vhLcBXb+9kHR8gCtq+aUMa/gkSuTCtHq+WC6Z24Hyqw8GbC+scqfNFWEuWOSOCdb
+Z5823UNI6gSlQpkz9MMU63IBt2uCKykkaWeb+CaxGWCo</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <KeyDescriptor use="encryption">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDHjCCAgagAwIBAgIVALYLW6CpP+nlV3k4xwrkbB7YdFSeMA0GCSqGSIb3DQEB
+CwUAMBoxGDAWBgNVBAMMD2Nhcy5leGFtcGxlLm9yZzAeFw0xNzEwMTcyMDUxNTBa
+Fw0zNzEwMTcyMDUxNTBaMBoxGDAWBgNVBAMMD2Nhcy5leGFtcGxlLm9yZzCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIe2grESeBayuxQz4DB4pDqEc6Pd
+0o1m/42zxu9sJ1vZ0PuwIBYTaGMma9KK/aJXO5KIqI7LwaD0+HEyTk5oCx4ru8Cn
+bbZct6IE8ybrj0E85nJHq/50nzWJmmqizaHS35Ka9+BZtwujw/HWmguyfucbZ1cU
++qTqcHQz8wZ3l65A6fShY4D+mrgbvJ4z80uZWBu7cf9MJUuZGnYetBdWAl04Qy4l
+2WRHLnDu7gUjVBXqHrqqEUGPjYLwwfCWUyy5+oAvTmnzbNe/PtjehTuG0+4dNDnY
+WgADuYDegjrdTahMqqSmx/ofvYG6ZPjhhRU2rn5LJirCMUtjww+alfauRY8CAwEA
+AaNbMFkwHQYDVR0OBBYEFElvpoRGFYiFQSqDFWkKfNuZWn8SMDgGA1UdEQQxMC+C
+D2Nhcy5leGFtcGxlLm9yZ4YcY2FzLmV4YW1wbGUub3JnL2lkcC9tZXRhZGF0YTAN
+BgkqhkiG9w0BAQsFAAOCAQEAapftgNC4VD4pQ3gOjngcQRWB5nWkBROqaX+VWpG1
+TcLAPeE7e2KsfjnvA+fEVmQEVsEXhtnhZtIShbC+oBNF/8ZFZr6JY9p5Z42N5Gyp
+rG2rH8PrT8FSdCbB7Pl9bCj+dyVhB7LIZHNQawcbWWXwY37Ja1Hbmm9EEBxQpabV
+f9OEYGFy15KGiaebiT5BqK0g+4mMMh6GWDbe4Y1E+UXp3zUreTSy0YEajVzOV5AE
+bQ6yJuwYw+Oo/OcCUi/40+BcQu2JNofNyF7NEiWJLZEAehXggy1TuFaeUkVopZZQ
+ln7zMjfSBjCbiyYaKsCZqX+quAOecWiw6tM0EMRhs1jEDw==</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas.example.org:8443/cas/idp/profile/SAML2/POST/SLO"/>
+        
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas.example.org:8443/cas/idp/profile/SAML2/POST/SSO"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cas.example.org:8443/cas/idp/profile/SAML2/Redirect/SSO"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cas.example.org:8443/cas/idp/profile/SAML2/SOAP/ECP"/>
+    </IDPSSODescriptor>
+</EntityDescriptor>
