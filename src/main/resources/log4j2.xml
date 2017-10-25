@@ -2,12 +2,13 @@
 <!-- Specify the refresh internal in seconds. -->
 <Configuration monitorInterval="5" packages="org.apereo.cas.logging">
     <Properties>
-        <Property name="baseDir">/Users/cfernandez/cd-dev/cas/cas-server-webapp/etc/cas/logs</Property>
+        <Property name="baseDir">${catalina.base}/logs</Property>
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
+        <!--
         <RollingFile name="file" fileName="${baseDir}/cas.log" append="true"
                      filePattern="${baseDir}/cas-%d{yyyy-MM-dd-HH}-%i.log">
             <PatternLayout pattern="%highlight{%d %p [%c] - &lt;%m&gt;}%n"/>
@@ -61,14 +62,18 @@
         <CasAppender name="casFile">
             <AppenderRef ref="file" />
         </CasAppender>
+        -->
         <CasAppender name="casConsole">
             <AppenderRef ref="console" />
         </CasAppender>
+        <!--
         <CasAppender name="casPerf">
             <AppenderRef ref="perfFileAppender" />
         </CasAppender>
+        -->
     </Appenders>
     <Loggers>
+        <!--
         <AsyncLogger name="com.couchbase" level="warn" additivity="false" includeLocation="true">
             <AppenderRef ref="casConsole"/>
             <AppenderRef ref="casFile"/>
@@ -173,8 +178,8 @@
             <AppenderRef ref="casFile"/>
         </AsyncLogger>
         <AsyncLogger name="com.ryantenney.metrics" level="warn" additivity="false">
-            <AppenderRef ref="casConsole"/>
-            <AppenderRef ref="casFile"/>
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="file"/>
         </AsyncLogger>
         <AsyncLogger name="net.jradius" level="warn" additivity="false">
             <AppenderRef ref="casConsole"/>
@@ -216,7 +221,6 @@
         <AsyncLogger name="org.apereo.cas.web.flow" level="info" additivity="true" includeLocation="true">
             <AppenderRef ref="casFile"/>
         </AsyncLogger>
-        <!--
         <AsyncLogger name="org.apereo.inspektr.audit.support" level="info" includeLocation="true">
             <AppenderRef ref="casAudit"/>
             <AppenderRef ref="casFile"/>

@@ -1,0 +1,59 @@
+{
+  @class: org.apereo.cas.services.RegexRegisteredService
+  serviceId: https://cas-test.coredial.com:8443/cas/idp/profile/SAML2/POST/SSO/Callback.+
+  name: RegexRegisteredService
+  id: 5990482143467785216
+  description: SAML Authentication Request
+  proxyPolicy:
+  {
+    @class: org.apereo.cas.services.RefuseRegisteredServiceProxyPolicy
+  }
+  evaluationOrder: 0
+  usernameAttributeProvider:
+  {
+    @class: org.apereo.cas.services.PrincipalAttributeRegisteredServiceUsernameProvider
+    usernameAttribute: mail
+    canonicalizationMode: NONE
+    encryptUsername: false
+  }
+  attributeReleasePolicy:
+  {
+    @class: org.apereo.cas.services.ReturnMappedAttributeReleasePolicy
+    allowedAttributes:
+    {
+        @class: java.util.TreeMap
+        gender: gender
+        displayName: displayName
+        name.givenName: givenName
+        name.familyName: surname
+        url: url
+        image.url: imageUrl
+        language: language
+        mail: "groovy { return attributes['emails'][0].getEmail() }"
+        uid: "groovy { return attributes['emails'][0].getEmail().replaceFirst(/@.*$/,'') }"
+    }
+    principalAttributesRepository:
+    {
+      @class: org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository
+      expiration: 2
+      timeUnit: HOURS
+    }
+    authorizedToReleaseCredentialPassword: false
+    authorizedToReleaseProxyGrantingTicket: false
+    excludeDefaultAttributes: false
+  }
+  multifactorPolicy:
+  {
+    @class: org.apereo.cas.services.DefaultRegisteredServiceMultifactorPolicy
+    failureMode: CLOSED
+    bypassEnabled: false
+  }
+  accessStrategy:
+  {
+    @class: org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy
+    enabled: true
+    ssoEnabled: true
+    requireAllAttributes: true
+    caseInsensitive: false
+  }
+}
