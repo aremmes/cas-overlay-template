@@ -72,12 +72,14 @@
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-core-configuration-cloud-jdbc</artifactId>
             <version>${cas.version}</version>
             <scope>runtime</scope>
         </dependency>
+        -->
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-json-service-registry</artifactId>
@@ -138,19 +140,23 @@
             <version>${cas.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-audit-jdbc</artifactId>
             <version>${cas.version}</version>
             <scope>runtime</scope>
         </dependency>
+        -->
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <!--
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.1.4</version>
             <scope>runtime</scope>
         </dependency>
+        -->
         <!--
         <dependency>
             <groupId>org.apereo.cas</groupId>
