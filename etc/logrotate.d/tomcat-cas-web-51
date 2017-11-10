@@ -1,0 +1,24 @@
+/opt/tomcat/base/cas-web-51/logs/catalina.out {
+	missingok
+	nomail
+	rotate 14
+	daily
+	compress
+	delaycompress
+	prerotate
+		/bin/su -c ". /opt/tomcat/base/cas-web-51/bin/setenv.sh; shutdown.sh" tomcat
+	endscript
+	postrotate
+		/bin/su -c ". /opt/tomcat/base/cas-web-51/bin/setenv.sh; startup.sh" tomcat
+		/usr/bin/find /opt/tomcat/base/cas-web-51/logs -type f -mtime +14 -delete
+	endscript
+}
+/var/log/cas/*.log {
+	missingok
+	nomail
+	rotate 14
+	daily
+	compress
+	delaycompress
+}
+
