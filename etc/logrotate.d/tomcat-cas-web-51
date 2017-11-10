@@ -16,9 +16,8 @@
 /var/log/cas/*.log {
 	missingok
 	nomail
-	rotate 14
-	daily
-	compress
-	delaycompress
+	postrotate
+		/usr/bin/find /var/log/cas -type f -mtime +14 -delete
+	endscript
 }
 
