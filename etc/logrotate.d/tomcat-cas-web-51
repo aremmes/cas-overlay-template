@@ -11,13 +11,6 @@
 	postrotate
 		/bin/su -c ". /opt/tomcat/base/cas-web-51/bin/setenv.sh; startup.sh" tomcat
 		/usr/bin/find /opt/tomcat/base/cas-web-51/logs -type f -mtime +14 -delete
-	endscript
-}
-/var/log/cas/*.log {
-	missingok
-	nomail
-	postrotate
 		/usr/bin/find /var/log/cas -type f -mtime +14 -delete
 	endscript
 }
-
